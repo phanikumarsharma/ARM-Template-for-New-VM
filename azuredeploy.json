@@ -30,11 +30,10 @@
         "virtualNetworkName": "TemplateVNET",
         "publicIPAddressName": "TemplatePublicIP",
         "dnsNameForPublicIP": "[concat(variables('dnsLabelPrefix'),uniqueString(resourceGroup().name))]",
-        "_artifactsLocation": "https://raw.githubusercontent.com/phanikumarsharma/TestRepo/master/scripts/",
+        "_artifactsLocation": "https://raw.githubusercontent.com/phanikumarsharma/ARM-Template-for-New-VM/master/scripts/",
         "adminUsername": "vmadmin",
         "adminPassword": "keepcalm@123",
-        "resourcegroupname": "[resourceGroup().name]",
-        "FileURI": "[concat(variables('_artifactsLocation'),'/msft-rdmi-saas-offering.zip')]"
+        "resourcegroupname": "[resourceGroup().name]"
     },
     "resources": [
         {
@@ -142,7 +141,7 @@
                         "autoUpgradeMinorVersion": true,
                         "settings": {
                            "fileUris": [
-                            "https://raw.githubusercontent.com/phanikumarsharma/ARM-Template-for-New-VM/master/New-VMscript.ps1"
+                            "https://raw.githubusercontent.com/phanikumarsharma/ARM-Template-for-New-VM/master/scripts/New-VMscript.ps1"
                         ],
                         "commandToExecute": "[concat('powershell.exe -ExecutionPolicy Unrestricted -File New-VMscript.ps1', ' -SubscriptionId \"', variables('subscriptionId'), '\"',' ', ' -ResourceGroupName \"', variables('resourcegroupname'), '\"',' ', ' -Location \"', variables('Location'), '\"',' ',' -UserName \"', parameters('AzureLoginID'), '\"',' ',' -Password \"', parameters('AzureLoginPassword'), '\"')]"
                         }

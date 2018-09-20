@@ -21,4 +21,5 @@ workflow Get-AzureVMTutorial
     
     #Get all the VMs you have in your Azure subscription
     $VMs = New-AzureRmResourceGroup -Name "testrg001" -Location "CentralUS"
+}
 
